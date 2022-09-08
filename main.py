@@ -24,7 +24,7 @@ async def on_ready():
   # bot default status
   await client.change_presence(
     activity = discord.Activity (
-      type = discord.ActivityType.playing, name = "the sun"
+      type = discord.ActivityType.playing, name = "you"
     )
   )
   
