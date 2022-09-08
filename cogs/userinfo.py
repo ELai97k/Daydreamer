@@ -40,7 +40,7 @@ class UserInfo(commands.Cog):
 
         if len(user.roles) > 1:
             role_string = ' '.join([r.mention for r in user.roles][1:])
-            embed.add_field(name="Roles ({})".format(len(user.roles)-1), value=role_string, inline=False)
+            embed.add_field(name="Server roles ({})".format(len(user.roles)-1), value=role_string, inline=False)
 
         perm_string = ', '.join([str(p[0]).replace("_", " ").title() for p in user.guild_permissions if p[1]])
 
