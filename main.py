@@ -5,7 +5,6 @@ from discord.ext import commands
 
 intents = discord.Intents().default().all()
 intents.members = True
-intents.message_content = True
 
 client = commands.Bot(command_prefix="D!", case_insensitive=True, intents=intents)
 
