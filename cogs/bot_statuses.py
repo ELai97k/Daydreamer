@@ -12,7 +12,6 @@ class Bot_Statuses(commands.Cog):
     @tasks.loop(seconds=999.0)
     async def random_status_loop(self):
         status = [
-            "you",
             "this server",
             "the sun",
             "the moon",
