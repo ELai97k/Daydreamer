@@ -43,7 +43,7 @@ class Info(commands.Cog):
         inline=False)
 
         embed.add_field(name="heyprompts",
-        value="Command for displaying list of options when you type 'hey daydreamer'",
+        value="Command for displaying list of options when you type 'hey daydreamer'.",
         inline=False)
 
         embed.add_field(name="version / botver",
