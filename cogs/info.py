@@ -26,6 +26,10 @@ class Info(commands.Cog):
         value="Displays the bot's default help command.",
         inline=False)
 
+        embed.add_field(name="ask", 
+        value="8ball command, ask the bot anything.",
+        inline=False)
+
         embed.add_field(name="embed", 
         value="Displays a test embed.",
         inline=False)
