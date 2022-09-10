@@ -2,12 +2,12 @@ import discord
 from discord.ext import commands
 
 class HeyPrompts(commands.Cog):
-    """'hey daydreamer' prompts and responses"""
+    """hey daydreamer prompts and responses."""
     def __init__(self, client):
         self.client = client
 
     # embed
-    @commands.command()
+    @commands.command(help="Command embed to find out what you can input when you trigger 'hey daydreamer' in message.")
     async def heyprompts(self, ctx):
         if ctx.author == self.client.user:
             return
