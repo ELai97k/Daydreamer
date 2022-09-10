@@ -3,12 +3,12 @@ from discord.ext import commands
 import random
 
 class EightBall(commands.Cog):
-    """8ball command"""
+    """8ball function."""
     def __init__(self, client):
         self.client = client
 
     # 8ball command (prefix + ask)
-    @commands.command()
+    @commands.command(help="Ask the bot anything with the 8ball function.")
     async def ask(self, ctx):
         if ctx.author == self.client.user:
             return
