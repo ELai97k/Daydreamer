@@ -2,11 +2,11 @@ import discord
 from discord.ext import commands
 
 class Test(commands.Cog):
-    """This is a test command"""
+    """Test cog."""
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
+    @commands.command(help="This is a test command.")
     async def test(self, ctx):
         if ctx.author == self.client.user:
             return
