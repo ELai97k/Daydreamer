@@ -1,2 +1,2 @@
 # Daydreamer Discord bot
- Daydreamer is a simple chatbot with an auto-response function and some commands.
+ Daydreamer is a simple chatbot with auto-responses and some commands.
