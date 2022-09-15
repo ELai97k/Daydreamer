@@ -14,6 +14,7 @@ for filename in os.listdir("./cogs"):
     if filename.endswith(".py"):
         client.load_extension(f'cogs.{filename [:-3]}')
 
+
 # on ready event
 @client.event
 async def on_ready():
@@ -26,7 +27,7 @@ async def on_ready():
       type = discord.ActivityType.listening, name = "Sunshine Day"
     )
   )
-  
+
 
 # client event messages
 @client.event
