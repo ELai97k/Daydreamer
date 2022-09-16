@@ -50,7 +50,7 @@ class Info(commands.Cog):
         value="Command for displaying list of options when you type 'hey daydreamer'.",
         inline=False)
 
-        embed.add_field(name="version / botversion / botver",
+        embed.add_field(name="version",
         value="Python version for the bot.",
         inline=False)
 
