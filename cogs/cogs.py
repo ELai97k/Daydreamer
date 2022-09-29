@@ -24,7 +24,7 @@ class Cogs(commands.Cog):
         await ctx.channel.typing()
         await ctx.send(embed=embed)
         await self.client.load_extension(f'cogs.{extension}')
-        print(f'Loding {extension}')
+        print(f'Loading {extension}')
 
     @load.error
     async def load_error(self, ctx, error):
