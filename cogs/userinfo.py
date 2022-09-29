@@ -40,8 +40,8 @@ class UserInfo(commands.Cog):
             title = f"{user.name}'s Info",
             color=0xffd966
         )
-        embed.set_author(name=str(user), icon_url=user.avatar_url)
-        embed.set_thumbnail(url=user.avatar_url)
+        embed.set_author(name=str(user), icon_url=user.avatar.url)
+        embed.set_thumbnail(url=user.avatar.url)
 
         # server join date
         embed.add_field(name="Date joined:", value=user.joined_at.strftime(date_format), inline=False)
@@ -63,5 +63,5 @@ class UserInfo(commands.Cog):
         await ctx.send(embed=embed)
 
 
-def setup(client):
-    client.add_cog(UserInfo(client))
+async def setup(client):
+    await client.add_cog(UserInfo(client))
