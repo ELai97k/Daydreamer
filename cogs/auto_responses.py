@@ -169,7 +169,7 @@ class Auto_Responses(commands.Cog):
                 if trigger in message.content.lower().replace("'", "").replace("i am", "").strip():
                     await message.channel.typing()
                     return await message.channel.send(response)
-            await message.channel.()
+            await message.channel.typing()
             await message.channel.send("Hi " + message.content.lower().replace("i am", "").strip() + ", I'm Daydreamer!")
 
         # I'm responses
@@ -187,7 +187,7 @@ class Auto_Responses(commands.Cog):
                 if trigger in message.content.lower().replace("'", "").replace("im", "").strip():
                     await message.channel.typing()
                     return await message.channel.send(response)
-            await message.channel.()
+            await message.channel.typing()
             await message.channel.send("Hi " + message.content.lower().replace("im", "").strip() + ", I'm Daydreamer!")
 
         # I thought you did
