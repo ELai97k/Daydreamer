@@ -42,7 +42,7 @@ class EightBall(commands.Cog):
             "Reply hazy, try again later.",
             "As I see it, yes."
         ]
-        await ctx.channel.trigger_typing()
+        await ctx.channel.typing()
         await ctx.send(f'{random.choice(eight_ball)}')
 
 
