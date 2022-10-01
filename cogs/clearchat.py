@@ -17,7 +17,7 @@ class Clearchat(commands.Cog):
 
         if amount is None:
             await ctx.get_channel(961934795460444231).send("Deleting messages.")
-            await ctx.channel.purge(limit=5)
+            await ctx.channel.purge(limit=5+1)
 
         elif amount == "all":
             await ctx.get_channel(961934795460444231).send("Deleting all messages.")
