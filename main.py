@@ -9,9 +9,6 @@ intents.members = True
 # custom help command
 class CustomHelpCommand(commands.HelpCommand):
     color=0xffd966
-    def get_ending_note(self):
-        return 'Use {0}{1} [command] for more info on a command.'.format(self.invoked_with)
-
     def get_command_signature(self, command):
         parent = command.full_parent_name
         if len(command.aliases) > 0:
@@ -45,7 +42,7 @@ class CustomHelpCommand(commands.HelpCommand):
                         value = '{0}\n{1}'.format(cog.description, value)
 
                     embed.add_field(name=name, value=value, inline=False)
-                    embed.set_footer(text=f"Use {command_prefix} [cog] or {command_prefix} [command] for more info.")
+                    embed.set_footer(text=f"Use {command_prefix}help [cog] or {command_prefix}help [command] for more info.")
 
         await self.get_destination().send(embed=embed)
 
@@ -57,7 +54,7 @@ class CustomHelpCommand(commands.HelpCommand):
             description = f"{cog.description}\n```{[command.name for command in cog.get_commands()]}```",
             color=0xffd966
         )
-        embed.set_footer(text=f"Use {command_prefix} [command] for more info.")
+        embed.set_footer(text=f"Use {command_prefix}help [command] for more info.")
         await self.get_destination().send(embed=embed)
 
     # command info
