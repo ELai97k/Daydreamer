@@ -49,15 +49,12 @@ class CustomHelpCommand(commands.HelpCommand):
 
     # cog info
     async def send_cog_help(self, cog):
-        embed = discord.Embed(title='{0.qualified_name} Commands'.format(cog), color=0xffd966)
-        if cog.description:
-            embed.description = cog.description
-
-        filtered = await self.filter_commands(cog.get_commands(), sort=True)
-        for command in filtered:
-            embed.add_field(name=self.get_command_signature(command), value=command.short_doc or '...', inline=False)
-
-        embed.set_footer(text=self.get_ending_note())
+        embed = discord.Embed (
+            title = f"{cog.qualified_name}",
+            description = f"{cog.description}\n```{[command.name for command in cog.get_commands()]}```",
+            color=0xffd966
+        )
+        embed.set_footer(text=f"{self.get_ending_note()}")
         await self.get_destination().send(embed=embed)
 
     # command info
