@@ -27,6 +27,7 @@ class CustomHelpCommand(commands.HelpCommand):
 
     # cogs and commands
     async def send_bot_help(self, mapping):
+        command_prefix="?"
         embed = discord.Embed(title=f"{client.user.name}'s Cogs & Commands", color=0xffd966)
         description = self.context.bot.description
         if description:
@@ -44,17 +45,19 @@ class CustomHelpCommand(commands.HelpCommand):
                         value = '{0}\n{1}'.format(cog.description, value)
 
                     embed.add_field(name=name, value=value, inline=False)
+                    embed.set_footer(text=f"Use {command_prefix} [cog] or {command_prefix} [command] for more info.")
 
         await self.get_destination().send(embed=embed)
 
     # cog info
     async def send_cog_help(self, cog):
+        command_prefix="?"
         embed = discord.Embed (
             title = f"{cog.qualified_name}",
             description = f"{cog.description}\n```{[command.name for command in cog.get_commands()]}```",
             color=0xffd966
         )
-        embed.set_footer(text=f"{self.get_ending_note()}")
+        embed.set_footer(text=f"Use {command_prefix} [command] for more info.")
         await self.get_destination().send(embed=embed)
 
     # command info
