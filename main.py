@@ -6,7 +6,7 @@ from discord.ext import commands
 intents = discord.Intents.default().all()
 intents.members = True
 
-client = commands.Bot(command_prefix="?", case_insensitive=True, intents=intents)
+client = commands.Bot(command_prefix="?", help_command=commands.MinimalHelpCommand, case_insensitive=True, intents=intents)
 
 # cogs
 async def load_extensions():
