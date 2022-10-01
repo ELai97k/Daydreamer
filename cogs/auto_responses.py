@@ -8,11 +8,14 @@ class Auto_Responses(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.content.lower().startswith("bot how are you"):
-            await message.channel.typing()
-            await message.channel.send("I'm good! How about you?")
+        if message.author == self.client.user:
+            return
 
-        if message.content.lower().startswith("im good") or message.content.lower().startswith("i'm good"):
+        if message.content.lower().startswith("heya"):
+            await message.channel.typing()
+            await message.channel.send("How are you?")
+
+        if message.content.lower().startswith("im okay") or message.content.lower().startswith("i'm okay"):
             await message.channel.typing()
             await message.channel.send("That's good.")
 
