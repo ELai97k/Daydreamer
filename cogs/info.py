@@ -42,18 +42,6 @@ class Info(commands.Cog):
         value="This command is a test command.",
         inline=False)
 
-        embed.add_field(name="responses", 
-        value="Displays a list of words / phrases / sentences the bot will auto respond to.",
-        inline=False)
-
-        embed.add_field(name="heyprompts",
-        value="Command for displaying list of options when you type 'hey daydreamer'.",
-        inline=False)
-
-        embed.add_field(name="version",
-        value="Python version for the bot.",
-        inline=False)
-
         embed.add_field(name="userinfo",
         value="Command to fetch user info.",
         inline=False)
