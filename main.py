@@ -10,7 +10,7 @@ intents.members = True
 class CustomHelpCommand(commands.HelpCommand):
     color=0xffd966
     def get_ending_note(self):
-        return 'Use {0}{1} [command] for more info on a command.'.format(self.clean_prefix, self.invoked_with)
+        return 'Use {0}{1} [command] for more info on a command.'.format(self.invoked_with)
 
     def get_command_signature(self, command):
         parent = command.full_parent_name
@@ -49,7 +49,7 @@ class CustomHelpCommand(commands.HelpCommand):
 
     # cog info
     async def send_cog_help(self, cog):
-        embed = discord.Embed(title=f'{cog.qualified_name} Commands'.format(cog), color=0xffd966)
+        embed = discord.Embed(title='{0.qualified_name} Commands'.format(cog), color=0xffd966)
         if cog.description:
             embed.description = cog.description
 
