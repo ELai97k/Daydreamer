@@ -9,23 +9,13 @@ class Clearchat(commands.Cog):
 
     @commands.command(pass_context=True, help="Delete messages in a text channel.")
     @has_permissions(administrator=True)
-    async def clearchat(self, ctx, amount):
+    async def clearchat(self, ctx, amount=5):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
 
-        if amount is None:
-            await ctx.get_channel(961934795460444231).send("Deleting messages.")
-            await ctx.channel.purge(limit=5+1)
-
-        elif amount == "all":
-            await ctx.get_channel(961934795460444231).send("Deleting all messages.")
-            await ctx.channel.purge()
-
-        else:
-            await ctx.get_channel(961934795460444231).send(f"Deleting {amount} messages.")
-            await ctx.channel.purge(limit=int(amount))
+        await ctx.channel.purge(limit=amount)
 
     @clearchat.error
     async def clearchat_error(self, ctx, error):
