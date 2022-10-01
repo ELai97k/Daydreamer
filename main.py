@@ -23,7 +23,7 @@ class CustomHelpCommand(commands.HelpCommand):
         else:
             alias = command.name if not parent else parent + ' ' + command.name
 
-        return '%s%s %s' % (self.clean_prefix, alias, command.signature)
+        return '%s%s %s' % (alias, command.signature)
 
     # cogs and commands
     async def send_bot_help(self, mapping):
