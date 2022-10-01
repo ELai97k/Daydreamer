@@ -54,6 +54,7 @@ class CustomHelpCommand(commands.HelpCommand):
             description = f"{cog.description}\n```{[command.name for command in cog.get_commands()]}```",
             color=0xffd966
         )
+        embed.set_footer(text=self.get_ending_note())
         await self.get_destination().send(embed=embed)
 
     # command info
