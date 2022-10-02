@@ -8,6 +8,9 @@ class Auto_Responses(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        if message.author == self.client.user:
+            return
+
         if message.content.lower().startswith("heya"):
             async with message.channel.typing():
                 await asyncio.sleep(1)
