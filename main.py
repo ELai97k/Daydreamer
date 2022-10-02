@@ -36,7 +36,7 @@ class CustomHelpCommand(commands.HelpCommand):
     async def send_cog_help(self, cog):
         command_prefix="?"
         embed = discord.Embed (
-            title = f"{cog.qualified_name}",
+            title = f"{cog.qualified_name} Commands",
             description = f"{cog.description}\n```{[command.name for command in cog.get_commands()]}```",
             color=0xffd966
         )
