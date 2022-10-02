@@ -12,7 +12,7 @@ class Auto_Responses(commands.Cog):
             await message.channel.typing()
             await message.channel.send("How are you?")
 
-        if message.content.lower().startswith("im okay"):
+        if message.content.lower().startswith("i'm okay"):
             await message.channel.typing()
             await message.channel.send("That's good.")
 
