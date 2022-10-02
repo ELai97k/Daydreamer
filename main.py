@@ -8,7 +8,6 @@ intents.members = True
 
 # custom help command
 class CustomHelpCommand(commands.HelpCommand):
-    color=0xffd966
     # cogs and commands
     async def send_bot_help(self, mapping):
         command_prefix="?"
