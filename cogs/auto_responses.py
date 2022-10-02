@@ -16,7 +16,7 @@ class Auto_Responses(commands.Cog):
                 await asyncio.sleep(1)
             await message.channel.send("How are you?")
 
-        if message.author.bot.id == 1025762898515079249:
+        if message.author.bot == 1025762898515079249:
             if message.content.lower().startswith("i'm okay"):
                 async with message.channel.typing():
                     await asyncio.sleep(1)
