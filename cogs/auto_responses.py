@@ -6,6 +6,30 @@ class Auto_Responses(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    # Daydreamer and Barry Queen chat 1
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if message.author == self.bot.user:
+            return
+
+        if message.author.bot:
+            if message.content.lower().startswith("what's your favourite food"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("That's a secret!")
+
+            if message.content.lower().startswith("why should it be a secret"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("Because it's mine.")
+
+            if message.content.lower().startswith("wait a minute! you're a sun, you can't even eat! you just burn things"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("Don't you see my smiling face and closed eyes? The fact that I even have a face and have closed eyes and a smile means I have a mouth and can actually eat.")
+
+
+    # Daydreamer and Barry Queen chat 2
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author == self.client.user:
@@ -67,7 +91,7 @@ class Auto_Responses(commands.Cog):
                     await asyncio.sleep(1)
                 await message.channel.send("So your favourite food is bbq?")
 
-            if message.content.lower().startswith("don't change the fucking subject"):
+            if message.content.lower().startswith("don't change the damn subject"):
                 async with message.channel.typing():
                     await asyncio.sleep(1)
                 await message.channel.send("Why must you do this to me?")
