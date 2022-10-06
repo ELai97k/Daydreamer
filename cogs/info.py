@@ -57,3 +57,6 @@ class Info(commands.Cog):
 
 async def setup(client):
     await client.add_cog(Info(client))
+
+async def teardwon(client):
+    await client.remove_cog(Info(client))
