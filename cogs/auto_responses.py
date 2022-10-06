@@ -21,7 +21,7 @@ class Auto_Responses(commands.Cog):
             if message.content.lower().startswith("why should it be a secret"):
                 async with message.channel.typing():
                     await asyncio.sleep(1)
-                await message.channel.send("Because it's mine.")
+                await message.channel.send("Because I just said so.")
 
             if message.content.lower().startswith("wait a minute! you're a sun, you can't even eat! you just burn things"):
                 async with message.channel.typing():
