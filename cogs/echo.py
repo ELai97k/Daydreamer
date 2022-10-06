@@ -31,3 +31,6 @@ class Echo(commands.Cog):
 
 async def setup(client):
     await client.add_cog(Echo(client))
+
+async def teardown(client):
+    await client.remove_cog(Echo(client))
