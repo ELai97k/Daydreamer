@@ -25,7 +25,7 @@ class Auto_Responses(commands.Cog):
 
             if message.content.lower().startswith("wait a minute! you're a sun, you can't even eat! you just burn things"):
                 async with message.channel.typing():
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(2)
                 await message.channel.send("Don't you see my smiling face and closed eyes? The fact that I even have a face and have closed eyes and a smile means I have a mouth and can actually eat.")
 
 
