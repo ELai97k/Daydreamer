@@ -6,12 +6,12 @@ class Auto_Responses(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # Daydreamer and Barry Queen chat 1
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author == self.bot.user:
+        if message.author == self.client.user:
             return
 
+        # Daydreamer and Barry Queen chat 1
         if message.author.bot:
             if message.content.lower().startswith("what's your favourite food"):
                 async with message.channel.typing():
@@ -29,12 +29,7 @@ class Auto_Responses(commands.Cog):
                 await message.channel.send("Don't you see my smiling face and closed eyes? The fact that I even have a face and have closed eyes and a smile means I have a mouth and can actually eat.")
 
 
-    # Daydreamer and Barry Queen chat 2
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.author == self.client.user:
-            return
-
+        # Daydreamer and Barry Queen chat 2
         if message.content.lower().startswith("heya"):
             async with message.channel.typing():
                 await asyncio.sleep(1)
