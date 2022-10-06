@@ -34,3 +34,6 @@ class Server(commands.Cog):
 
 async def setup(client):
     await client.add_cog(Server(client))
+
+async def teardown(client):
+    await client.remove_cog(Server(client))
