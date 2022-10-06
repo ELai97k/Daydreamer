@@ -65,3 +65,6 @@ class UserInfo(commands.Cog):
 
 async def setup(client):
     await client.add_cog(UserInfo(client))
+
+async def teardown(client):
+    await client.remove_cog(UserInfo(client))
