@@ -12,24 +12,6 @@ class Auto_Responses(commands.Cog):
             return
 
         # Daydreamer and Barry Queen chat 1
-        if message.author.bot:
-            if message.content.lower().startswith("what's your favourite food"):
-                async with message.channel.typing():
-                    await asyncio.sleep(1)
-                await message.channel.send("That's a secret!")
-
-            if message.content.lower().startswith("why should it be a secret"):
-                async with message.channel.typing():
-                    await asyncio.sleep(1)
-                await message.channel.send("Because I just said so.")
-
-            if message.content.lower().startswith("wait a minute! you're a sun, you can't even eat! you just burn things"):
-                async with message.channel.typing():
-                    await asyncio.sleep(2)
-                await message.channel.send("Don't you see my smiling face and closed eyes? The fact that I even have a face and have closed eyes and a smile means I have a mouth and can actually eat.")
-
-
-        # Daydreamer and Barry Queen chat 2
         if message.content.lower().startswith("heya"):
             async with message.channel.typing():
                 await asyncio.sleep(1)
