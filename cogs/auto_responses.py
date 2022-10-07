@@ -15,10 +15,10 @@ class Auto_Responses(commands.Cog):
         if message.content.lower().startswith("heya"):
             async with message.channel.typing():
                 await asyncio.sleep(1)
-            await message.channel.send("How are you?")
+            await message.channel.send("Hello! How are you?")
 
         if message.author.bot:
-            if message.content.lower().startswith("i'm okay"):
+            if message.content.lower().startswith("hello i'm okay"):
                 async with message.channel.typing():
                     await asyncio.sleep(1)
                 await message.channel.send("That's good.")
