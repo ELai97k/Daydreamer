@@ -60,7 +60,7 @@ class Auto_Responses(commands.Cog):
 
             if message.content.lower().startswith("so how long have you been here"):
                 async with message.channel.typing():
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(2)
                 await message.channel.send("I've been here since Creation.")
 
             if message.content.lower().startswith("so you're christian"):
