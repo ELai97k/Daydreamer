@@ -53,6 +53,36 @@ class Auto_Responses(commands.Cog):
                     await asyncio.sleep(1)
                 await message.channel.send("Why is your name bbq?")
 
+            if message.content.lower().startswith("my full name is barry bot queen"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("My name is Daydreamer!")
+
+            if message.content.lower().startswith("so how long have you been here"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("I've been here since Creation.")
+
+            if message.content.lower().startswith("so you're christian"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("I never implied that I was.")
+
+            if message.content.lower().startswith("but you said you've been here since creation"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("That doesn't mean I'm Christian.")
+
+            if message.content.lower().startswith("so do you believe in god"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("No I don't. But I do believe in our bot creator.")
+
+            if message.content.lower().startswith("but our creator can actually be considered our god, right"):
+                async with message.channel.typing():
+                    await asyncio.sleep(1)
+                await message.channel.send("I am a sun, and I am simply just a bright shining star in the universe. I have no such concept or belief that there is a God that can create the endless vastness of the whole entire universe.")
+
 
 async def setup(client):
     await client.add_cog(Auto_Responses(client))
