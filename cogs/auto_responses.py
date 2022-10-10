@@ -80,7 +80,7 @@ class Auto_Responses(commands.Cog):
 
             if message.content.lower().startswith("but our creator can actually be considered our god, right"):
                 async with message.channel.typing():
-                    await asyncio.sleep(1)
+                    await asyncio.sleep(2)
                 await message.channel.send("I am a sun, and I am simply just a bright shining star in the universe. I have no such concept or belief that there is a God that can create the endless vastness of the whole entire universe.")
 
 
