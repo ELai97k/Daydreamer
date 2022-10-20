@@ -11,12 +11,12 @@ class Auto_Responses(commands.Cog):
         if message.author == self.client.user:
             return
 
-        # Daydreamer and Barry Queen chat 1
         if message.content.lower().startswith("heya"):
             async with message.channel.typing():
                 await asyncio.sleep(1)
             await message.channel.send("Hello! How are you?")
 
+        # Daydreamer and Barry Queen chat 1
         if message.author.bot:
             if message.content.lower().startswith("hello, i'm okay"):
                 async with message.channel.typing():
