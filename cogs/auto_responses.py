@@ -10,8 +10,6 @@ class Auto_Responses(commands.Cog):
     async def on_message(self, message):
         if message.author == self.client.user:
             return
-        if message.author.bot:
-            return
 
         if message.content.lower().startswith("good morning"):
             await message.channel.typing()
