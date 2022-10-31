@@ -13,9 +13,13 @@ class Auto_Responses(commands.Cog):
         if message.author.bot:
             return
 
-        if message.content.lower().startswith("oh no"):
+        if message.content.lower().startswith("good morning"):
             await message.channel.typing()
-            await message.channel.send("Anyway...")
+            await message.channel.send(f"Good morning, {message.author}!")
+
+        if message.content.lower().startswith("good afternoon"):
+            await message.channel.typing()
+            await message.channel.send(f"Good afternoon, {message.author}!")
 
 async def setup(client):
     await client.add_cog(Auto_Responses(client))
