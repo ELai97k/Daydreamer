@@ -19,6 +19,7 @@ class Auto_Responses(commands.Cog):
             await message.channel.typing()
             await message.channel.send(f"Good afternoon, {message.author}!")
 
+
 async def setup(client):
     await client.add_cog(Auto_Responses(client))
 
