@@ -10,8 +10,12 @@ class Auto_Responses(commands.Cog):
     async def on_message(self, message):
         if message.author == self.client.user:
             return
+        if message.author.bot:
+            return
 
-
+        if message.content.lower().startswith("oh no"):
+            await message.channel.typing()
+            await message.channel.send("Anyway...")
 
 async def setup(client):
     await client.add_cog(Auto_Responses(client))
