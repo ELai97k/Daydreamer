@@ -1,4 +1,3 @@
-import asyncio
 from discord.ext import commands
 
 class Auto_Responses(commands.Cog):
