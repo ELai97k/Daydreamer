@@ -1,10 +1,40 @@
 import discord
 import os
 import asyncio
+import json
 from discord.ext import commands
+from discord.ext.commands import has_permissions, MissingPermissions
+from datetime import datetime
 
 intents = discord.Intents.default().all()
 intents.members = True
+
+# for bot warnings
+# save warnings
+def save_warn(self, ctx, member: discord.Member):
+    with open('warns.json', 'r') as f:
+        warns = json.load(f)
+        warns[str(member.id)] += 1
+
+        with open('warns.json', 'w') as f:
+            json.dump(warns, f)
+
+# remove warnings
+def remove_warn(ctx, member: discord.Member, amount: int):
+    with open('warns.json', 'r') as f:
+        warns = json.load(f)
+        warns[str(member.id)] -= amount
+
+    with open('warns.json', 'w') as f:
+        json.dump(warns, f)
+
+# warning checks
+def warns_check(member: discord.Member):
+    with open('warns.json', 'r') as f:
+        warns = json.load(f)
+        warns[str(member.id)]
+
+    return warns
 
 # custom help command
 class CustomHelpCommand(commands.HelpCommand):
@@ -82,5 +112,76 @@ async def on_ready():
             type = discord.ActivityType.listening, name = "Sunshine Day"
         )
     )
+
+# warn command
+@client.command(help="Warn command for Admin and Mods.")
+@commands.has_role("Moderators")
+@has_permissions(manage_roles=True)
+async def warn(ctx, member:discord.Member, *, reason=None):
+    if ctx.author == client.user:
+        return
+    if ctx.author.bot:
+        return
+
+    if reason is None:
+        return await ctx.send("Pls provide a reason for warning.")
+
+    save_warn(ctx, member)
+    embed = discord.Embed (
+        title=f"**⚠ WARNING for {member.name}!**",
+        description=f"You have been given a warning for ```{reason}```",
+        color=discord.Color.dark_red()
+    )
+    embed.set_footer(text="If you think this was a mistake, DM or ping Admin or Mods for further discussion.")
+    embed.timestamp = datetime.datetime.utcnow()
+    await ctx.send(embed=embed)
+    print(f"{member.name} has been given a warning!")
+
+# warn command error
+@warn.error
+async def warn_error(ctx, error):
+    if isinstance(error, MissingPermissions):
+        await ctx.send("You do not have permission to use this command!")
+
+# warnings command
+@client.command(help="Number of warnings for users in the server.")
+@commands.has_role("Moderators")
+@has_permissions(manage_roles=True)
+async def warnings(ctx, *, member:discord.Member):
+    if ctx.author == client.user:
+        return
+    if ctx.author.bot:
+        return
+
+    warns = warns_check(member)
+    await ctx.send(f"{member.name} has {warns} warnings.")
+
+# warnings command error
+@warnings.error
+async def warnings_error(ctx, error):
+    if isinstance(error, MissingPermissions):
+        await ctx.send("You do not have permission to use this command!")
+
+# remove warnings from user
+@client.command(help="Remove warnings from a user.")
+@commands.has_role("Moderators")
+@has_permissions(manage_roles=True)
+async def removewarn(ctx, *, member:discord.Member, amount: int):
+    if ctx.author == client.user:
+        return
+    if ctx.author.bot:
+        return
+
+    if amount is None:
+        await ctx.send("Pls specify the number of warnings for me to remove.")
+
+    remove_warn(ctx, member, amount)
+    await ctx.send(f"Removed {amount} warnings from {member.name}.")
+
+# remove warn error
+@removewarn.error
+async def removewarn_error(ctx, error):
+    if isinstance(error, MissingPermissions):
+        await ctx.send("You do not have permission to use this command!")
 
 client.run(os.getenv("TOKEN"))
