@@ -20,7 +20,7 @@ class Echo(commands.Cog):
             await ctx.send("What do you want me to say?")
 
         else:
-            await self.client.get_channel(1010841256294875218).send(f"{message}")
+            # await self.client.get_channel(1010841256294875218).send(f"{message}")
             await ctx.message.delete()
 
     @echo.error
