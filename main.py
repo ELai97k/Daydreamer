@@ -113,33 +113,6 @@ async def on_ready():
         )
     )
 
-# starboard
-@client.event
-async def on_raw_reaction_add(payload):
-    star = await client.get_channel(946705507220078672)
-
-    if str(payload.message.guild.id) not in star:
-        return
-
-    starchannel = client.get_channel(star[str(payload.message.guild.id)])
-
-    if payload.emoji == '⭐':
-        if str(payload.message.guild.id) not in star:
-            return
-
-        if len(payload.message.attachments) > 0:
-            embed.set_image(url = payload.message.attachments[0].url)
-
-        embed = discord.Embed (
-            description = f"{payload.message.author}:\n\n{payload.message.content}\n\n**[Jump to message]({payload.message.jump_url})**",
-            color = discord.Color.dark_gold(),
-            timestamp = datetime.now()
-        )
-        embed.set_author(name = f"{payload.member.name} starred a message", icon_url = payload.member.avatar_url)
-        embed.set_footer(text = f"<#{payload.channel.id}>")
-
-        await starchannel.send(embed = embed)
-
 # warn command
 @client.command(help="Warn command for Admin and Mods.")
 @commands.has_role("Moderators")
