@@ -6,7 +6,7 @@ class Members(commands.Cog):
         self.client = client
 
     @commands.command(pass_context=True)
-    async def pfp(self, ctx, *, member:discord.Member):
+    async def pfp(self, ctx, *, member:discord.Member=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
