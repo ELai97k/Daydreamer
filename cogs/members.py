@@ -33,7 +33,7 @@ class Members(commands.Cog):
             description = f"👥 Members: {ctx.guild.member_count}",
             color=discord.Color.blurple()
         )
-        embed.add_field(name="Member names:", value=f"{ctx.get_all_members()}")
+        embed.add_field(name="Member names:", value=f"{ctx.guild.member_name}")
 
         await ctx.send(embed=embed)
 
