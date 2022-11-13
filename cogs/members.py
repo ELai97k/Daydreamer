@@ -16,7 +16,7 @@ class Members(commands.Cog):
             member = ctx.author
 
         embed = discord.Embed(color=discord.Color.blurple)
-        embed.set_image(url=ctx.member.avatar.url)
+        embed.set_image(url=ctx.author.avatar.url)
 
         await ctx.send(embed=embed)
 
