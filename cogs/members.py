@@ -15,7 +15,7 @@ class Members(commands.Cog):
         if user is None:
             user = ctx.author
 
-        embed = discord.Embed(color=discord.Color.blurple)
+        embed = discord.Embed(color=discord.Color.blurple())
         embed.set_image(url=user.avatar.url)
 
         await ctx.send(embed=embed)
