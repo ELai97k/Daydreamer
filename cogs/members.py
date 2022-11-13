@@ -6,17 +6,17 @@ class Members(commands.Cog):
         self.client = client
 
     @commands.command(pass_context=True)
-    async def pfp(self, ctx, *, member:discord.Member=None):
+    async def pfp(self, ctx, *, user:discord.Member=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
 
-        if member is None:
-            member = ctx.author
+        if user is None:
+            user = ctx.author
 
         embed = discord.Embed(color=discord.Color.blurple)
-        embed.set_image(url=ctx.author.avatar.url)
+        embed.set_image(url=user.avatar.url)
 
         await ctx.send(embed=embed)
 
