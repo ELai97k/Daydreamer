@@ -19,7 +19,7 @@ class ClearChats(commands.Cog):
             await ctx.send("Pls enter amount of messages for me to clear.")
 
         else:
-            await ctx.channel.purge(amount)
+            await ctx.channel.purge(limit=amount)
             #await self.client.get_channel(961934795460444231).send(f"Clearing messages in {ctx.channel.name}.")
             embed = discord.Embed(title="Operation Successful!", description=f"Clearing messages in {ctx.channel.name}.", color=0x198C19)
             await ctx.send(embed=embed)
