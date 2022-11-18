@@ -20,8 +20,8 @@ class Warnings(commands.Cog):
     # warn command
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
-    @has_permissions(manage_roles=True, ban_members=True)
-    async def warn(ctx,user:discord.User,*reason:str):
+    @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
+    async def warn(self, ctx, user:discord.User, *reason:str):
         user = ctx.author
         if not reason:
             await ctx.send("Please provide a reason for warning.")
@@ -89,8 +89,8 @@ class Warnings(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
-def setup(client):
+async def setup(client):
     client.add_cog(Warnings(client))
 
-def teardown(client):
+async def teardown(client):
     client.remove_cog(Warnings(client))
