@@ -31,7 +31,7 @@ class ClearChats(commands.Cog):
 
 
 async def setup(client):
-    client.add_cog(ClearChats(client))
+    await client.add_cog(ClearChats(client))
 
 async def teardown(client):
-    client.remove_cog(ClearChats(client))
+    await client.remove_cog(ClearChats(client))
