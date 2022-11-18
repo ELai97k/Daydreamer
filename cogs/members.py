@@ -29,8 +29,8 @@ class Members(commands.Cog):
             return
 
         embed = discord.Embed (
-            title = f"{ctx.guild.name} members",
-            description = f"👥 Members: {ctx.guild.member_count}",
+            title = f"{ctx.guild.name} Members",
+            description = f"👥 {ctx.guild.member_count}",
             color=discord.Color.blurple()
         )
 
