@@ -21,7 +21,7 @@ class Warnings(commands.Cog):
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
-    async def warn(self, ctx, user:discord.User, *reason:str):
+    async def warn(self, ctx, user:discord.Member, *reason:str):
         user = ctx.author
         if not reason:
             await ctx.send("Please provide a reason for warning.")
@@ -65,7 +65,7 @@ class Warnings(commands.Cog):
     @commands.command(pass_context = True)
     @commands.has_role("Moderators")
     @has_permissions(manage_roles=True, kick_members=True, ban_members=True)
-    async def warnings(self, ctx, user:discord.User):
+    async def warnings(self, ctx, user:discord.Member):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
