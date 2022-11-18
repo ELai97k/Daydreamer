@@ -90,7 +90,7 @@ class Warnings(commands.Cog):
 
 
 async def setup(client):
-    client.add_cog(Warnings(client))
+    await client.add_cog(Warnings(client))
 
 async def teardown(client):
-    client.remove_cog(Warnings(client))
+    await client.remove_cog(Warnings(client))
