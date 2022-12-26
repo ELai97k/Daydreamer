@@ -82,8 +82,8 @@ class Cogs(commands.Cog):
             await ctx.send("You do not have permission to use this command!")
 
 
-async def setup(client):
+def setup(client):
     client.add_cog(Cogs(client))
 
-async def teardown(client):
+def teardown(client):
     client.remove_cog(Cogs(client))
