@@ -83,7 +83,7 @@ class Cogs(commands.Cog):
 
 
 async def setup(client):
-    await client.add_cog(Cogs(client))
+    client.add_cog(Cogs(client))
 
 async def teardown(client):
-    await client.remove_cog(Cogs(client))
+    client.remove_cog(Cogs(client))
