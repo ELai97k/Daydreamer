@@ -21,10 +21,10 @@ class Cogs(commands.Cog):
             description = f"Cog name `{extension}` has been loaded successfully and your changes were saved.",
             color=0x198C19
         )
-        await ctx.channel.typing()
+        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         await self.client.load_extension(f'cogs.{extension}')
-        print(f'Loding {extension}')
+        print(f'Loading {extension}')
 
     @load.error
     async def load_error(self, ctx, error):
@@ -46,7 +46,7 @@ class Cogs(commands.Cog):
             description = f"Cog name `{extension}` has been unloaded successfully and your changes were saved.",
             color=0x198C19
         )
-        await ctx.channel.typing()
+        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         await self.client.unload_extension(f'cogs.{extension}')
         print(f'Unloading {extension}')
@@ -71,10 +71,10 @@ class Cogs(commands.Cog):
             description = f"Cog name `{extension}` has been reloaded successfully and your changes were saved.",
             color=0x198C19
         )
-        await ctx.channel.typing()
+        await ctx.channel.trigger_typing()
         await ctx.send(embed=embed)
         await self.client.unload_extension(f'cogs.{extension}')
-        await self.client.load_extension(f'cogs.{extension}')
+        await self.client.load_extension(f"cogs.{extension}")
         print(f'Reloading {extension}')
 
     @reload.error
