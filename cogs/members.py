@@ -5,7 +5,7 @@ class Members(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(pass_context=True, help="Command to show user's profile picture (pfp)")
+    @commands.command(pass_context=True, aliases=["profile", "userprofile", "userpfp"], help="Command to show user's profile picture (pfp)")
     async def pfp(self, ctx, *, user:discord.Member=None):
         if ctx.author == self.client.user:
             return
@@ -21,7 +21,7 @@ class Members(commands.Cog):
         await ctx.send(embed=embed)
 
 
-    @commands.command(help="Command to fetch number of members in server.")
+    @commands.command(aliases=["servermembers", "members"], help="Command to fetch number of members in server.")
     async def server_members(self, ctx):
         if ctx.author == self.client.user:
             return
