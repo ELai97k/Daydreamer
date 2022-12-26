@@ -23,7 +23,7 @@ class Cogs(commands.Cog):
         )
         await ctx.channel.typing()
         await ctx.send(embed=embed)
-        await self.client.load_extension(f'cogs.{extension}')
+        self.client.load_extension(f'cogs.{extension}')
         print(f'Loding {extension}')
 
     @load.error
@@ -48,7 +48,7 @@ class Cogs(commands.Cog):
         )
         await ctx.channel.typing()
         await ctx.send(embed=embed)
-        await self.client.unload_extension(f'cogs.{extension}')
+        self.client.unload_extension(f'cogs.{extension}')
         print(f'Unloading {extension}')
 
     @unload.error
@@ -73,7 +73,7 @@ class Cogs(commands.Cog):
         )
         await ctx.channel.typing()
         await ctx.send(embed=embed)
-        await self.client.reload_extension(f'cogs.{extension}')
+        self.client.reload_extension(f'cogs.{extension}')
         print(f'Reloading {extension}')
 
     @reload.error
