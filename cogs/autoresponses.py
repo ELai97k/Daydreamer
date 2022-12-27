@@ -18,8 +18,8 @@ class AutoResponses(commands.Cog):
             await message.channel.send(f"Good afternoon {message.author.name}!")
 
 
-def setup(client):
-    client.add_cog(AutoResponses(client))
+async def setup(client):
+    await client.add_cog(AutoResponses(client))
 
-def teardown(client):
-    client.remove_cog(AutoResponses(client))
+async def teardown(client):
+    await client.remove_cog(AutoResponses(client))
