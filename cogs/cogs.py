@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from discord.ext.commands import has_permissions, MissingPermissions
 
 class Cogs(commands.Cog):
     """Commands for loading, unloading, and reloading cogs."""
@@ -9,7 +8,6 @@ class Cogs(commands.Cog):
 
     # load cogs
     @commands.command(help="Command for loading cogs.")
-    @has_permissions(administrator=True)
     async def load(self, ctx, extension):
         if ctx.author == self.client.user:
             return
@@ -26,15 +24,9 @@ class Cogs(commands.Cog):
         await self.client.load_extension(f'cogs.{extension}')
         print(f'Loading {extension}')
 
-    @load.error
-    async def load_error(self, ctx, error):
-        if isinstance(error, MissingPermissions):
-            await ctx.send("You do not have permission to use this command!")
-
 
     # unload cogs
     @commands.command(help="Command for unloading cogs.")
-    @has_permissions(administrator=True)
     async def unload(self, ctx, extension):
         if ctx.author == self.client.user:
             return
@@ -51,15 +43,9 @@ class Cogs(commands.Cog):
         await self.client.unload_extension(f'cogs.{extension}')
         print(f'Unloading {extension}')
 
-    @unload.error
-    async def unload_error(self, ctx, error):
-        if isinstance(error, MissingPermissions):
-            await ctx.send("You do not have permission to use this command!")
-
 
     # reload cogs
     @commands.command(help="Command for reloading cogs.")
-    @has_permissions(administrator=True)
     async def reload(self, ctx, extension):
         if ctx.author == self.client.user:
             return
@@ -76,11 +62,6 @@ class Cogs(commands.Cog):
         await self.client.unload_extension(f'cogs.{extension}')
         await self.client.load_extension(f"cogs.{extension}")
         print(f'Reloading {extension}')
-
-    @reload.error
-    async def reload_error(self, ctx, error):
-        if isinstance(error, MissingPermissions):
-            await ctx.send("You do not have permission to use this command!")
 
 
 async def setup(client):
