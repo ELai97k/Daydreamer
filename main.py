@@ -2,6 +2,7 @@ import discord
 import os
 import asyncio
 from discord.ext import commands
+from discord.ext.commands import CommandNotFound
 
 intents = discord.Intents.default().all()
 intents.members = True
@@ -82,5 +83,17 @@ async def on_ready():
             type = discord.ActivityType.listening, name = "Sunshine Day"
         )
     )
+
+# command not found error
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, CommandNotFound):
+        embed = discord.Embed (
+            title = "Command Not Found",
+            description = "No such command found in my cogs!\n```Use '!help' to see list of commands.```",
+            color = discord.Color.dark_red()
+        )
+        await ctx.send(embed=embed)
+        print(f"{client.user} Error 404: Command Not Found")
 
 client.run(os.getenv("TOKEN"))
