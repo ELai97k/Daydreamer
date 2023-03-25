@@ -38,7 +38,7 @@ class Facts(commands.Cog):
             "Bahasa Malaysia and Bahasa Indonesia are incredibly similiar, so we can mutally speak and understand each other. Bahasa means langauge.",
             "Before Among Us, there was TellTale's The Wolf Among Us."
         ]
-        await ctx.channel.trigger_typing()
+        await ctx.channel.typing()
         await ctx.send(f"{random.choice(facts)}")
 
 
