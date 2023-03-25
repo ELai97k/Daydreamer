@@ -3,9 +3,6 @@ import os
 import asyncio
 from discord.ext import commands
 
-from keep_alive import keep_alive
-keep_alive()
-
 intents = discord.Intents.default().all()
 intents.members = True
 
