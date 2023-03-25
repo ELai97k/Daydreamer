@@ -25,6 +25,10 @@ class AutoResponses(commands.Cog):
             await message.channel.typing()
             await message.channel.send(f"Good night {message.author.name}!")
 
+        if message.content.lower().startswith("everybody do what youre doing") or message.content.lower().startswith("everybody do what you're doing") or message.content.lower().startswith("everybody do what ur doing") or message.content.lower().startswith("every body do what youre doing") or message.content.lower().startswith("every body do what you're doing") or message.content.lower().startswith("every body do what ur doing"):
+            await message.channel.typing()
+            await message.channel.send("Smile will make a sunshine day!")
+
 
 async def setup(client):
     await client.add_cog(AutoResponses(client))
