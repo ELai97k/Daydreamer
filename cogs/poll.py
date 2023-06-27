@@ -40,7 +40,6 @@ class Poll(commands.Cog):
         react_message = await ctx.send(embed=embed)
         for reaction in reactions[:len(options)]:
             await react_message.add_reaction(reaction)
-        await react_message.edit(embed=embed)
 
 
 async def setup(client):
