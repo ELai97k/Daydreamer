@@ -1,5 +1,6 @@
 import discord
-import datetime
+import pytz
+from datetime import datetime
 from discord.ext import commands
 
 class Poll(commands.Cog):
@@ -41,7 +42,7 @@ class Poll(commands.Cog):
         react_message = await ctx.send(embed=embed)
         for reaction in reactions[:len(options)]:
             await react_message.add_reaction(reaction)
-        embed.timestamp = datetime.datetime.utcnow()
+        embed.timestamp = pytz.timezone('Asia/Singapore')
         await react_message.edit(embed=embed)
 
 
