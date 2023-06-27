@@ -17,7 +17,7 @@ class Poll(commands.Cog):
         embed = discord.Embed(
             color = discord.Color.orange(),
             title = "How to use the poll command:",
-            description="```!poll title one two three four etc```\nTo input sentences or phrases in the title and/or items, use quotation marks."
+            description="```?poll title one two three four etc```\nTo input sentences or phrases in the title and/or items, use quotation marks."
         )
         await ctx.send(embed=embed)
 
