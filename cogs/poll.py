@@ -15,6 +15,9 @@ class Poll(commands.Cog):
         if ctx.author.bot:
             return
 
+        if len(options) is None:
+            await ctx.send("Pls create a proper poll to vote!")
+
         if len(options) <= 1:
             await ctx.send('You need at least more than one option to make a poll!')
             return
