@@ -71,19 +71,6 @@ async def main():
     await load_extensions()
 asyncio.run(main())
 
-# on ready event
-@client.event
-async def on_ready():
-    # bot login
-    print(f"{client.user} logged in successfully!")
-
-    # bot status
-    await client.change_presence (
-        activity = discord.Activity (
-            type = discord.ActivityType.listening, name = "Sunshine Day"
-        )
-    )
-
 # command not found error
 @client.event
 async def on_command_error(ctx, error):
