@@ -9,21 +9,21 @@ class Status(commands.Cog):
 
     @commands.command(help="Set custom bot status.")
     @has_permissions(administrator=True, manage_roles=True)
-    async def change_status(self, ctx, newstatus=None):
+    async def change_status(self, ctx, type, newstatus=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
         
-        if ctx.lower() == "streaming":
+        if type.lower() == "streaming":
             await self.client.change_presence(activity=discord.Streaming(name=" development process", url=newstatus))
-        elif ctx.lower() == "listening":
+        elif type.lower() == "listening":
             await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=newstatus))
-        elif ctx.lower() == "watching":
+        elif type.lower() == "watching":
             await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=newstatus))
-        elif ctx.lower() == "playing":
+        elif type.lower() == "playing":
             await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=newstatus))
-        elif ctx.lower() == "default":
+        elif type.lower() == "default":
             await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=" Sunshine Day"))
         else:
             await ctx.send("Invalid status! Unable to display status.")
