@@ -24,7 +24,7 @@ class Status(commands.Cog):
         elif type.lower() == "playing":
             await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=newstatus))
         elif type.lower() == "default":
-            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=" Sunshine Day"))
+            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
         else:
             await ctx.send("Invalid status! Unable to display status.")
             return
