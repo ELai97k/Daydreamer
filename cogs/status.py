@@ -8,6 +8,7 @@ class Status(commands.Cog):
         self.client = client
 
     @commands.command(help="Set custom bot status.")
+    @has_permissions(administrator=True, manage_roles=True)
     async def change_status(self, ctx, type, newstatus=None):
         if ctx.author == self.client.user:
             return
@@ -28,6 +29,11 @@ class Status(commands.Cog):
             await ctx.send("Invalid status! Unable to display status.")
             return
         await ctx.send("Changed status!")
+
+    @change_status.error
+    async def change_status_error(self, ctx, error):
+        if isinstance(error, MissingPermissions):
+            await ctx.send("You do not have permission to use this command!")
 
 
 async def setup(client):
