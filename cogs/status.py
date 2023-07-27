@@ -15,15 +15,15 @@ class Status(commands.Cog):
         if ctx.author.bot:
             return
         
-        if type.lower() == "streaming":
+        if ctx.type.lower() == "streaming":
             await self.bot.change_presence(activity=discord.Streaming(name=" development process", url=newstatus))
-        elif type.lower() == "listening":
+        elif ctx.type.lower() == "listening":
             await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=newstatus))
-        elif type.lower() == "watching":
+        elif ctx.type.lower() == "watching":
             await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=newstatus))
-        elif type.lower() == "playing":
+        elif ctx.type.lower() == "playing":
             await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=newstatus))
-        elif type.lower() == "default":
+        elif ctx.type.lower() == "default":
             await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=" Sunshine Day"))
         else:
             await ctx.send("Invalid status! Unable to display status.")
