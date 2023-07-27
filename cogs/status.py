@@ -9,22 +9,22 @@ class Status(commands.Cog):
 
     @commands.command(help="Set custom bot status.")
     @has_permissions(administrator=True, manage_roles=True)
-    async def change_status(self, ctx, type, newstatus=None):
+    async def change_status(self, ctx, newstatus=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
         
-        if ctx.type.lower() == "streaming":
-            await self.bot.change_presence(activity=discord.Streaming(name=" development process", url=newstatus))
-        elif ctx.type.lower() == "listening":
-            await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=newstatus))
-        elif ctx.type.lower() == "watching":
-            await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=newstatus))
-        elif ctx.type.lower() == "playing":
-            await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=newstatus))
-        elif ctx.type.lower() == "default":
-            await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=" Sunshine Day"))
+        if ctx.lower() == "streaming":
+            await self.client.change_presence(activity=discord.Streaming(name=" development process", url=newstatus))
+        elif ctx.lower() == "listening":
+            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=newstatus))
+        elif ctx.lower() == "watching":
+            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=newstatus))
+        elif ctx.lower() == "playing":
+            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=newstatus))
+        elif ctx.lower() == "default":
+            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=" Sunshine Day"))
         else:
             await ctx.send("Invalid status! Unable to display status.")
             return
