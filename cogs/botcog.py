@@ -4,9 +4,20 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, MissingPermissions
 
 class Botcog(commands.Cog):
-    """Bot cog for logging out."""
+    """Bot cog."""
     def __init__(self, client):
         self.client = client
+
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print(f"{self.client.user} logged in successfully!")
+
+        # bot status
+        await self.client.change_presence (
+            activity = discord.Activity (
+                type = discord.ActivityType.listening, name = "Sunshine Day"
+            )
+        )
 
     # log out
     @commands.command(help="Command for bot log out.")
