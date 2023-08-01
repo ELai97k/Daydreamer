@@ -19,7 +19,7 @@ class Status(commands.Cog):
             "playing":discord.ActivityType.playing,
             "watching":discord.ActivityType.watching,
             "listening":discord.ActivityType.listening,
-            "default":(discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
+            "default":discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day")
         }
         try:
             await self.client.change_presence(activity=discord.Activity(type=types[type.lower()], name=newstatus))
