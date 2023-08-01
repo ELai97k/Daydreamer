@@ -18,11 +18,12 @@ class Status(commands.Cog):
         types = {
             "playing":discord.ActivityType.playing,
             "watching":discord.ActivityType.watching,
-            "listening":discord.ActivityType.listening,
-            "default":discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day")
+            "listening":discord.ActivityType.listening
         }
         try:
             await self.client.change_presence(activity=discord.Activity(type=types[type.lower()], name=newstatus))
+            if type.lower() == "default":
+                await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
         except KeyError:
             # invalid status type
             await ctx.send("Invalid status! Unable to display status.")
