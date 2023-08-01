@@ -18,30 +18,20 @@ class Status(commands.Cog):
         types = {
             "playing":discord.ActivityType.playing,
             "watching":discord.ActivityType.watching,
-            "listening":discord.ActivityType.listening
+            "listening":discord.ActivityType.listening,
+            "default":await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
         }
+        if type.lower() == "default":
+            await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
+            await ctx.send("Changed to default status!")
         try:
             await self.client.change_presence(activity=discord.Activity(type=types[type.lower()], name=newstatus))
-            if type.lower() == "default":
-                await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
+            await ctx.send("Changed status!")
+
         except KeyError:
             # invalid status type
             await ctx.send("Invalid status! Unable to display status.")
             return
-        await ctx.send("Changed status!")
-        
-        # if type.lower() == "listening":
-        #     await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=newstatus))
-        # elif type.lower() == "watching":
-        #     await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=newstatus))
-        # elif type.lower() == "playing":
-        #     await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=newstatus))
-        # elif type.lower() == "default":
-        #     await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="Sunshine Day"))
-        # else:
-        #     await ctx.send("Invalid status! Unable to display status.")
-        #     return
-        # await ctx.send("Changed status!")
 
     @change_status.error
     async def change_status_error(self, ctx, error):
