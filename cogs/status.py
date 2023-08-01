@@ -15,9 +15,7 @@ class Status(commands.Cog):
         if ctx.author.bot:
             return
         
-        if type.lower() == "streaming":
-            await self.client.change_presence(activity=discord.Streaming(name="the sun is a deadly laser", url=newstatus))
-        elif type.lower() == "listening":
+        if type.lower() == "listening":
             await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=newstatus))
         elif type.lower() == "watching":
             await self.client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=newstatus))
