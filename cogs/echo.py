@@ -10,18 +10,18 @@ class Echo(commands.Cog):
     # echo
     @commands.command(help="Echo command.")
     @has_permissions(manage_roles=True)
-    async def echo(self, ctx, *, channel=None, message=None):
+    async def echo(self, ctx, *, message=None):
         if ctx.author == self.client.user:
             return
         if ctx.author.bot:
             return
         
-        if message is None and channel is None:
-            await ctx.send("Pls specify a channel and message to type.")
+        if message is None:
+            await ctx.send("Pls say something.")
 
         else:
             await ctx.message.delete()
-            await self.client.get_channel(f"{ctx.guild.text_channels}").send(f"{message}")
+            await ctx.send(f"{message}")
 
     @echo.error
     async def echo_error(self, ctx, error):
