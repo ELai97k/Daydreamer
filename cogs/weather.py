@@ -28,21 +28,16 @@ class Weather(commands.Cog):
                 y = x["main"]
                 current_temperature = y["temp"]
                 current_temperature_celsiuis = str(round(current_temperature - 273.15))
-                current_pressure = y["pressure"]
-                current_humidity = y["humidity"]
                 z = x["weather"]
                 weather_description = z[0]["description"]
 
                 weather_description = z[0]["description"]
                 embed = discord.Embed(
                     title=f"Weather in {city_name}",
-                    color=ctx.guild.me.top_role.color,
-                    timestamp=ctx.message.created_at
+                    color=0xffc90d
                 )
                 embed.add_field(name="Descripition", value=f"**{weather_description}**", inline=False)
                 embed.add_field(name="Temperature(C)", value=f"**{current_temperature_celsiuis}°C**", inline=False)
-                embed.add_field(name="Humidity(%)", value=f"**{current_humidity}%**", inline=False)
-                embed.add_field(name="Atmospheric Pressure(hPa)", value=f"**{current_pressure}hPa**", inline=False)
                 embed.set_thumbnail(url="https://i.ibb.co/CMrsxdX/weather.png")
                 embed.set_footer(text=f"Requested by {ctx.author.name}")
                 
