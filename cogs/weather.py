@@ -27,7 +27,7 @@ class Weather(commands.Cog):
             async with channel.typing():
                 y = x["main"]
                 current_temperature = y["temp"]
-                current_temperature_celsiuis = str(round(current_temperature - 273.15))
+                current_temperature_celsius = str(round(current_temperature - 273.15))
                 z = x["weather"]
                 weather_description = z[0]["description"]
 
@@ -36,8 +36,8 @@ class Weather(commands.Cog):
                     title=f"Weather in {city_name}",
                     color=0xffc90d
                 )
-                embed.add_field(name="Descripition", value=f"**{weather_description}**", inline=False)
-                embed.add_field(name="Temperature", value=f"**{current_temperature_celsiuis}°C**", inline=False)
+                embed.add_field(name="Description:", value=f"**{weather_description}**", inline=False)
+                embed.add_field(name="Temperature:", value=f"**{current_temperature_celsius}°C**", inline=False)
                 embed.set_thumbnail(url="https://i.ibb.co/CMrsxdX/weather.png")
                 embed.set_footer(text=f"Requested by {ctx.author.name}")
                 
