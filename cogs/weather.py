@@ -37,7 +37,7 @@ class Weather(commands.Cog):
                     color=0xffc90d
                 )
                 embed.add_field(name="Descripition", value=f"**{weather_description}**", inline=False)
-                embed.add_field(name="Temperature(C)", value=f"**{current_temperature_celsiuis}°C**", inline=False)
+                embed.add_field(name="Temperature", value=f"**{current_temperature_celsiuis}°C**", inline=False)
                 embed.set_thumbnail(url="https://i.ibb.co/CMrsxdX/weather.png")
                 embed.set_footer(text=f"Requested by {ctx.author.name}")
                 
