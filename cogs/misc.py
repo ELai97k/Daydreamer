@@ -54,6 +54,16 @@ class Misc(commands.Cog):
         await ctx.send(f"My discord.py version is {discord.__version__}")
         print(f"discord.py v{discord.__version__}")
 
+        
+    @commands.command(help="Shows the bot's GitHub page.")
+    async def github(self, ctx):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+        github = "https://github.com/ELai97k/Daydreamer"
+        await ctx.send(github)
+
 
 async def setup(client):
     await client.add_cog(Misc(client))
