@@ -15,7 +15,6 @@ class Misc(commands.Cog):
             return
 
         await ctx.send("This is a test command.")
-        print("This is a test command and it works.")
 
 
     # ping command
