@@ -42,6 +42,25 @@ class Misc(commands.Cog):
             color=0xffc90d
         )
         await ctx.send(embed=embed)
+
+
+    # user profile pics
+    @commands.command(pass_context=True, aliases=["profile", "userprofile", "userpfp", "avatar"], help="Command to show user's profile picture (pfp)")
+    async def pfp(self, ctx, *, user:discord.Member=None):
+        if ctx.author == self.client.user:
+            return
+        if ctx.author.bot:
+            return
+
+        if user is None:
+            user = ctx.author
+
+        embed = discord.Embed(color=discord.Color.blurple())
+        try:
+            embed.set_image(url=user.avatar.url)
+        except:
+            embed.set_image(url=str(user.display_avatar.url))
+        await ctx.send(embed=embed)
     
 
     @commands.command(name="version", aliases=["ver"], help="Bot's discord.py version")
