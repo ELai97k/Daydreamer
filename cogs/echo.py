@@ -21,7 +21,7 @@ class Echo(commands.Cog):
 
         else:
             await ctx.message.delete()
-            await ctx.send(f"{message}")
+            await ctx.send(message, allowed_mentions=discord.AllowedMentions.none())
 
     @echo.error
     async def echo_error(self, ctx, error):
