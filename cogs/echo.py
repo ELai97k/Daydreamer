@@ -17,7 +17,7 @@ class Echo(commands.Cog):
             return
         
         if message is None:
-            await ctx.send("Pls say something.")
+            await ctx.send("Pls echo something.")
 
         else:
             await ctx.message.delete()
