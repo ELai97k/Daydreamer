@@ -12,7 +12,7 @@ class CustomHelpCommand(commands.HelpCommand):
     # cogs and commands
     async def send_bot_help(self, mapping):
         command_prefix="?"
-        embed = discord.Embed(title=f"{client.user.name}'s Cogs & Commands", color=0xffd966)
+        embed = discord.Embed(title=f"{client.user.name}'s Cogs & Commands", color=0x1f8b4c)
         description = self.context.bot.description
         if description:
             embed.description = description
