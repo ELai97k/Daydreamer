@@ -15,7 +15,7 @@ class ServerInfo(commands.Cog):
         
         embed = discord.Embed (
             title = f"{ctx.guild.name} Info",
-            color = 0xffc90d
+            color = 0x1f8b4c
         )
         try:
             embed.set_thumbnail(url=ctx.guild.icon.url)
