@@ -39,7 +39,7 @@ class CustomHelpCommand(commands.HelpCommand):
         embed = discord.Embed (
             title = f"{cog.qualified_name} Commands",
             description = f"{cog.description}\n```{[command.name for command in cog.get_commands()]}```",
-            color=0xffd966
+            color=0x1f8b4c
         )
         embed.set_footer(text=f"Use {command_prefix}help [command] for more info on a command.")
         await self.get_destination().send(embed=embed)
@@ -47,7 +47,7 @@ class CustomHelpCommand(commands.HelpCommand):
     # command info
     async def send_command_help(self, command):
         embed = discord.Embed (
-            color=0xffd966
+            color=0x1f8b4c
         )
         embed.add_field (
             name=f"{command.name}",
