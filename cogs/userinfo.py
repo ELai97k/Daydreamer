@@ -37,7 +37,7 @@ class UserInfo(commands.Cog):
         # user info embed
         embed = discord.Embed (
             title = f"{user.name}'s Info",
-            color=0xffc90d
+            color=0x1f8b4c
         )
         embed.set_author(name=str(user), icon_url=user.avatar.url)
         try:
