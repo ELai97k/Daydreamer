@@ -39,7 +39,7 @@ class Misc(commands.Cog):
         embed = discord.Embed (
             title = "Hello world",
             description = "This is a test embed",
-            color=0xffc90d
+            color=0x1f8b4c
         )
         await ctx.send(embed=embed)
 
