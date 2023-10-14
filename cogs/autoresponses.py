@@ -29,6 +29,15 @@ class AutoResponses(commands.Cog):
             await message.channel.typing()
             await message.channel.send("Smile will make a sunshine day!")
 
+        if ":(" in message.content.lower():
+            await message.channel.typing()
+            await message.channel.send("Turn that frown upside down!")
+
+            reply_message = await self.client.wait_for("message")
+            if "no" in reply_message.content.lower():
+                await message.channel.typing()
+                await message.channel.send("How dare you!")
+
 
 async def setup(client):
     await client.add_cog(AutoResponses(client))
