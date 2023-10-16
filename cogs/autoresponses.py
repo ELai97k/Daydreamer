@@ -1,3 +1,4 @@
+import random
 from discord.ext import commands
 
 class AutoResponses(commands.Cog):
@@ -49,6 +50,54 @@ class AutoResponses(commands.Cog):
             if "):" in reply_message.content.lower():
                 await message.channel.typing()
                 await message.channel.send("I'll burn you!")
+
+
+        if "e" in message.content and "!" not in message.content and message.author.id != 696008187991687189:
+            chance = random.randint(1, 190)
+            responses = [
+                "What's going on here?",
+                "What is going on here?",
+                "yes",
+                "Yes",
+                "no",
+                "No",
+                "whatever",
+                "Whatever",
+                "I thought you did",
+                "Okay",
+                "okay",
+                "Ok",
+                "ok",
+                "Oh",
+                "oh",
+                "Oh okay",
+                "oh okay",
+                "Hi",
+                "hi",
+                "Hi there",
+                "hi there",
+                "Hello",
+                "hello",
+                "hello there",
+                "Hello there",
+                "Hello world",
+                "hello world",
+                "Are you still there?",
+                "I see you",
+                "Help",
+                "help",
+                "Help?",
+                "help?",
+                "Help me",
+                "help me",
+                "Help me?",
+                "help me?",
+                "cough",
+                "aaaaaaaaaaaaaaaaa",
+                "waaaaaaaaaaaaaaaaa"
+            ]
+            if chance == 76:
+                await message.channel.send(random.choice(responses))
 
 
 async def setup(client):
